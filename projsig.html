@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+
+
+<html>
+<link rel="stylesheet" type="text/css" href="">
+<script type="text/javascript">
+
+function validate()
+{
+//  alert("hi");
+return (verifyNull() && verifyEmail() && verifymob() && verifyfname() && verifylname());
+// alert("check your MAIL and verify it!!");
+}
+
+
+function verifyNull(){
+        var isValid = true;
+        if(!document.getElementById('username').value.trim().length){
+            isValid = false;
+						document.getElementById("errorMsg");
+
+          //  alert('Please enter username');
+        }
+        else if(!document.getElementById('password').value.trim().length){
+        isValid = false;
+				document.getElementById("errorMsg");
+
+            //alert('Please enter password');
+        }
+      return isValid;
+    }
+	 function verifyEmail(){
+			 var x = document.getElementById('email').value;
+			 var atpos = x.indexOf("@");
+			 var dotpos = x.lastIndexOf(".");
+			 if (atpos< 1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+			//	 document.getElementById("errorMsg");
+      document.getElementById("pr").innerHTML="Invalid inputs";
+
+					 //alert("Not a valid e-mail address");
+			 return false;
+			 }
+       alert("check your MAIL and verify it!!");
+			return true;
+	 }
+
+function verifymob(){
+	var isValid = true;
+	var y;
+	y = document.getElementById("mob").value;
+	if(isNaN(y) || y == ""){
+		isValid = false;
+		document.getElementById("errorMsg");
+	 }
+	 return isValid;
+}
+
+function verifyfname(){
+	var isValid = true;
+	var x1;
+	x1 = document.getElementById("fname").value;
+	if (x1 == "") {
+		isValid = false;
+		document.getElementById("errorMsg");
+  }
+	return isValid;
+}
+
+function verifylname(){
+	var isValid = true;
+	var x2;
+	x2 = document.getElementById("lname").value;
+	if (x2 == "") {
+		isValid = false;
+		document.getElementById("errorMsg");
+  }
+	return isValid;
+}
+
+
+</script>
+<head></head>
+<style>
+body{
+  background-repeat: no-repeat;
+  background-position: center;
+  /* background-color: lightblue; */
+}
+form{
+  border-radius: 25px;
+	box-sizing: content-box;
+width: 300px;
+height: 560px;
+padding: 30px;
+border: 10px solid black;
+margin: 0px 10px 100px 950px;
+background-color: rgba(255, 255, 255, 0.7);
+}
+
+.ff{
+  margin: 0px 100px 100px 80px;
+  text-align: center;
+
+}
+.h{
+    color: black;
+}
+h1{
+text-align: center;}
+
+</style>
+<body background="img">
+
+<h1>TRAIN TICKET RESERVATION </h1>
+
+
+
+
+<div>
+	<form action="/register" method="post" onsubmit="return validate()">
+	<div class="ff">
+		<div class="h"> LOGIN</div><br>
+	 <input id="fname" type="text" name="name" placeholder="FirstNAME" required><br><br>
+   <input id="lname" type="text" name="name1" placeholder="LastNAME" required><br><br>
+
+	 D.O.B:<input type="date" id="start" name="dob"
+          placeholder="select date"
+           max="2001-02-03" required><br><br><br><br>
+
+
+Gender :  <select>
+<option value="MALE">MALE</option>
+<option value="FEMALE">FEMALE</option>
+<option value="OTHER">OTHER</option>
+</select><br><br>
+
+    <input id="username" type="text" name="name" placeholder="USERNAME" required><br><br>
+ 	 <input id="password" type="password" name="password" placeholder="PASSWORD" required><br><br>
+   <input id="password" type="password" name="password" placeholder="Confirm PASSWORD" required><br><br>
+
+
+
+
+	 <input id="mob" type="Number" name="MobileNumber" placeholder="MobileNumber" required><br><br>
+   <input id="email" type="text" name="email" placeholder="E-MAIL ID" required><br><br>
+   <p id="pr"></p>
+	 <input type = "submit" value = "Submit" onClick = "verifyNull();verifyEmail();verifymob();verifyfname();verifylname();"/>
+	 		<p id="q"><a href="can">CANCEL</a></p>
+	</div><br><br>
+
+
+
+
+
+<!-- 			<button <a href="form2.html" type="button" onclick="myFunction()">Submit</button>
+ -->
+</form>
+
+
+	</div>
+</body></html>

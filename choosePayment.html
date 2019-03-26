@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script>
+					function proceed(){
+							var method=document.getElementById("pay").value;
+							if(method=="card")
+							{
+								alert("hi");
+								window.location="card";
+							}
+					}
+	</script>
+	<style>
+	body{
+	  /* background-color: lightblue; */
+		background-repeat: no-repeat;
+		background-position: center;
+		background-color: lightblue;
+	}
+	form{
+	  border-radius: 25px;
+		box-sizing: content-box;
+		width: 300px;
+		height: 270px;
+		padding: 30px;
+		border: 10px solid black;
+		margin: 100px 10px 100px 550px;
+	  background-color: rgba(255, 255, 255, 0.7);
+		font-size: 25px;
+	}
+	.ff{
+	  margin: 0px 100px 100px 80px;
+	  text-align: center;
+	}
+	.h{
+	    color: black;
+	}
+	.q{
+	  flood-color: white;
+	}
+
+	h1{
+	  text-align: center;
+	  color: black;
+
+	}
+
+	</style>
+
+</head>
+<body background="">
+			<h1> How Would You Like To Pay?</h1>
+      <form onsubmit="return proceed()">
+				<input type="radio" id="pay" value="card" checked> By Card<br>
+				<input type="radio" id="pay" value="nb"> By Netbanking<br>
+				<input type="radio" id="pay" value="ewallet"> By E-Wallet<br><br><br>
+				<input type="submit" value="Proceed to Pay >>" onclick="proceed()">
+      </form>
+</body>
+</html>

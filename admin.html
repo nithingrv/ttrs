@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+	/* background-color: lightblue; */
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: lightblue;
+}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+form{
+	border-radius: 25px;
+	box-sizing: content-box;
+	width: wrap;
+	height: wrap;
+	padding: 30px;
+	border: 5px solid black;
+	margin: 50px 10px 50px 10px;
+	background-color: rgba(255, 255, 255, 0.7);
+	font-size: 20px;
+}
+.ff{
+	margin: 0px 100px 100px 80px;
+	text-align: center;
+}
+.ff label {
+	width: 240px;
+  display: inline-block;
+}
+.h{
+		color: black;
+}
+.q{
+	flood-color: white;
+}
+
+h1{
+	text-align: center;
+	color: black;
+
+}
+</style>
+</head>
+<body>
+
+<h1>Welcome Admin</h1>
+<h3 align='center'>What would you like to do?</h3>
+
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'Add')">Add</button>
+  <button class="tablinks" onclick="openTab(event, 'Remove')">Remove</button>
+  <button class="tablinks" onclick="openTab(event, 'Edit')">Edit</button>
+  <button class="tablinks" onclick="openTab(event, 'Feedback')">Feedback</button>
+</div>
+
+<div id="Add" class="tabcontent">
+  
+
+	<h1>Add a new Train</h1>
+	<form action="/admin" method="get" onsubmit="return validation()">
+	<div class="ff">
+		<label for="tnum">Train number:</label>
+		<input type="text" id="tnum" name="trainnumber" placeholder="12345"><br>
+		<label for="tname">Train Name:</label>
+		<input type="text" id="tname" name="trainname" pattern="[A-Za-z]*"><br>
+		<label for="from">Source:</label>
+		<select id="from" >
+			<option id="x" value="src">select Place</option>
+			<option value="CBE">Coimbatore(CBE)</option>
+			<option value="MAS">Chennai(MAS)</option>
+			<option value="SBC">Bangalore(SBC)</option>
+			<option value="HYD">Hyderabad(HYD)</option>
+		</select>
+		<br>
+		<label for="to">Destination:</label>
+		<select id="to" >
+			<option id="y" value="src">select Place</option>
+			<option value="CBE">Coimbatore(CBE)</option>
+			<option value="MAS">Chennai(MAS)</option>
+			<option value="SBC">Bangalore(SBC)</option>
+			<option value="HYD">Hyderabad(HYD)</option>
+		</select>
+		<br>
+		<br>
+		Passenger Capacity:<br>
+		<label for="al">AC Sleeper:</label>
+		<input type="text" id="al" name="acsleeper" pattern="[0-9]*"><br>
+		<label for="cc">AC ChairCar:</label>
+		<input type="text" id="cc" name="acchair" pattern="[0-9]*"><br>
+		<label for="sl">Second Class Sleeper:</label>
+		<input type="text" id="sl" name="sleeper" pattern="[0-9]*"><br>
+		<label for="sc">Second Class Sitting:</label>
+		<input type="text" id="sc" name="chaircar" pattern="[0-9]*"><br><br>
+		<input type="submit" value="Add Train">
+		<p id="pr" style="color:red;"></p>
+	</form>
+</div>
+
+
+
+</div>
+
+<div id="Remove" class="tabcontent">
+  <h3>Remove an Existing Train</h3>
+</div>
+
+<div id="Edit" class="tabcontent">
+  <h3>Edit an Existing Train</h3>
+</div>
+
+<div id="Feedback" class="tabcontent">
+  <h3>View user feedback for a particular Train</h3>
+</div>
+
+<script>
+
+function validation()
+{
+		var trainno=document.getElementById("tnum").value;
+		var trainname=document.getElementById("tname").value;
+		if(trainno.length!==5)
+		{
+				document.getElementById("pr").innerHTML="Enter Valid Train Number";
+				return false;
+		}
+		if(trainname.length<=5 )
+		{
+				document.getElementById("pr").innerHTML="Enter Valid Train Name";
+				return false;
+		}
+		var from = document.getElementById("from").value;
+		var to = document.getElementById("to").value;
+		x = document.getElementById("x").value;
+			y = document.getElementById("y").value;
+
+		if (from == to || from == x || to == y){
+			document.getElementById("pr").innerHTML="Enter Valid Source and Destination";
+			return false;
+		}
+		var acs = document.getElementById("al").value;
+		var cc = document.getElementById("cc").value;
+		var sl = document.getElementById("sl").value;
+		var ss = document.getElementById("sc").value;
+
+		if(acs<70 && cc<70 && sl<70 && ss<70){
+			document.getElementById("pr").innerHTML="Enter valid Capacity";
+			return false;
+		}
+
+		document.getElementById("pr").innerHTML="Train Added";
+}
+
+
+
+
+
+
+
+
+function openTab(evt, name) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(name).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+
+</body>
+</html>

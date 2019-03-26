@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" >
+//alert('hi')
+
+//var attempt = 3; // Variable to count number of attempts.
+// Below function Executes on click of login button.
+function verifyNull(){
+
+var from = document.getElementById("from").value;
+var to = document.getElementById("to").value;
+x = document.getElementById("x").value;
+	y = document.getElementById("y").value;
+
+
+if (from == to || from == x || to == y){
+
+	document.getElementById("pr").innerHTML="Source and Destination cannot be same";
+
+ // Redirecting to other page.
+return false;
+}
+
+else {
+ // document.getElementById("errorMsg");
+      //alert('invalid');
+
+			window.location = "trains";
+
+}
+
+}
+</script>
+<head>
+	<title></title>
+</head>
+<style>
+h1{
+	text-align: center;
+}
+
+body{
+
+	background-color: lightblue;
+	background-repeat: no-repeat;
+	background-position: center;
+/*	background-image-size:100px 100px
+*/}
+
+
+.ff{
+	box-sizing: content-box;
+	width: 300px;
+	height: 260px;
+	padding: 30px;
+	border: 10px solid black;
+	margin: 100px 10px 100px 950px;
+  background-color: rgba(255, 255, 255, 0.7);
+
+}
+.ff{
+  margin: 0px 100px 100px 80px;
+  text-align: center;
+}
+
+</style>
+<body background="">
+<h1>WELCOME</h1>
+
+<div class="about">
+
+</div>
+
+<div class="trainchk">
+	<form action="/trains" method="post" onsubmit="return verifyNull()">
+		<div class="ff">
+
+			FROM:<select id="from" >
+				<option id="x" value="src">select Place</option>
+
+<option value="CBE">Coimbatore(CBE)</option>
+<option value="MAS">Chennai(MAS)</option>
+<option value="SBC">Bangalore(SBC)</option>
+<option value="HYD">Hyderabad(HYD)</option>
+</select>
+
+<br>
+<br>
+
+		TO:	<select id="to" >
+			<option id="y" value="src">select Place</option>
+
+<option value="CBE">Coimbatore(CBE)</option>
+<option value="MAS">Chennai(MAS)</option>
+<option value="SBC">Bangalore(SBC)</option>
+<option value="HYD">Hyderabad(HYD)</option>
+</select>
+<br><br>
+Date of Travel:
+<input type="date" id="start" name="start"
+       min="2019-03-04" max="2019-05-04" required><br><br>
+
+			 TYPE:	<select id="to" placeholder="select destination">
+				 <option value="all">All Classes</option>
+
+		<option value="sl">Sleeper</option>
+		<option value="ac">AC-Chair-car</option>
+		<option value="acs">AC-Sleeper</option>
+		<option value="cc">Chair-car</option>
+	</select><br><br>
+	<p id="pr"></p><br><br>
+
+			 <input type = "submit" value = "Submit" onClick = "verifyNull();"/>
+		 </div>
+	 </div>
+</form>
+</body>
+</html>

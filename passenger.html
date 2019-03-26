@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+	body{
+	  /* background-color: lightblue; */
+		background-repeat: no-repeat;
+		background-position: center;
+		background-color: lightblue;
+	}
+
+	form{
+		border-radius: 25px;
+		box-sizing: content-box;
+		width: wrap;
+		height: wrap;
+		padding: 30px;
+		border: 5px solid black;
+		margin: 50px 10px 50px 10px;
+		background-color: rgba(255, 255, 255, 0.7);
+		font-size: 20px;
+	}
+	</style>
+	<script>
+
+	function validate() {
+
+		var name = document.getElementById("name").value;
+		var age = document.getElementById("age").value;
+
+		if(name==""){
+				document.getElementById("pr").innerHTML="Enter Passengers Name";
+				return false;
+		}
+
+		if(age==""){
+				document.getElementById("pr").innerHTML="Enter Passengers Age";
+				return false;
+		}
+
+		var re = /^[A-Za-z]+$/;
+		if(!re.test(name))
+	 {
+			 document.getElementById("pr").innerHTML="Invalid PassengerName";
+			 return false;
+	 }
+	 if(age.length>3)
+	 {
+	 		document.getElementById("pr").innerHTML="Invalid PassengerAge";
+	 		return false;
+	 }
+
+
+}
+		n=0;
+    function generate() {
+
+       n++;
+
+        var ch = document.getElementById("ch");
+if (n<=8) {
+
+  var name = document.createElement("input");
+ name.id="name";
+ name.type="text";
+ name.placeholder="NAME";
+
+
+var age = document.createElement("input");
+age.id="age";
+age.type="number";
+age.placeholder="AGE";
+
+
+var br = document.createElement("br");
+
+
+var gender = document.createElement("select");
+gender.appendChild(new Option("GENDER", "my value 0"));
+gender.appendChild(new Option("MALE", "my value 1"));
+gender.appendChild(new Option("FEMALE", "my value 2"));
+gender.appendChild(new Option("OTHER", "my value 2"));
+gender.id="gender";
+
+var nationality = document.createElement("select");
+nationality.appendChild(new Option("NATIONALITY", "my value 0"));
+nationality.appendChild(new Option("INDIA", "my value 1"));
+nationality.appendChild(new Option("OTHER", "my value 2"));
+nationality.id="nationality";
+
+   ch.appendChild(name);
+   ch.appendChild(age);
+	 ch.appendChild(gender);
+	 ch.appendChild(nationality);
+	 ch.appendChild(br);
+	 ch.appendChild(br);
+}else{
+        	alert("Invalid");
+        }
+
+    }
+    </script>
+</head>
+<body background="">
+ <form>
+<h4>Please Enter Passenger Detais</h4>
+
+        <input type="button" value="Add " onclick="generate()" />
+        <div id="ch" required></div>
+				<p id="pr"></p>
+
+				<input type="button" value="MAKE PAYMENT" onclick="validate()" />
+
+				<a href="pay">MAKE PAYMENT</a>
+
+    </form>
+</body>
+</html>

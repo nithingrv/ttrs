@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <script>
+            function validation()
+            {
+                var firstname=document.getElementById("fname").value;
+                var lastname=document.getElementById("lname").value;
+                var password=document.getElementById("password").value;
+                var checkpassword=document.getElementById("passwordcheck").value;
+                var email=document.getElementById("email").value;
+                var username=document.getElementById("username").value;
+                var phoneno=document.getElementById("mob").value;
+
+                if(firstname==""){
+                    document.getElementById("pr").innerHTML="Enter First Name";
+                    return false;
+                }
+
+                if(password==""){
+                    document.getElementById("pr").innerHTML="Enter password";
+                    return false;
+                }
+
+                if(checkpassword==""){
+                    document.getElementById("pr").innerHTML="Enter checkpassword";
+                    return false;
+                }
+
+                if(lastname==""){
+                    document.getElementById("pr").innerHTML="Enter lastname";
+                    return false;
+                }
+
+                if(email==""){
+                    document.getElementById("pr").innerHTML="Enter Email";
+                    return false;
+                }
+
+                if(username==""){
+                    document.getElementById("pr").innerHTML="Enter Username";
+                    return false;
+                }
+
+                var atpos = email.indexOf("@");
+                var dotpos = email.lastIndexOf(".");
+                if(atpos< 1 || dotpos<atpos+2 || dotpos+2>=email.length)
+                {
+                    document.getElementById("pr").innerHTML="Invalid Email";
+                    return false;
+                }
+
+                var re = /^[A-Za-z]+$/;
+                if(!re.test(firstname))
+               {
+                   document.getElementById("pr").innerHTML="First name should only contain characters";
+                   return false;
+               }
+
+                if(!re.test(lastname))
+               {
+                   document.getElementById("pr").innerHTML="Last name should only contain characters";
+                   return false;
+               }
+
+               if(password!=checkpassword)
+               {
+                   document.getElementById("pr").innerHTML="The Passwords dont match";
+                   return false;
+               }
+
+                if(phoneno.length!==10)
+                {
+                    document.getElementById("pr").innerHTML="Enter valid Phone number";
+                    return false;
+                }
+alert("check your MAIL and verify it!!");
+               return true;
+            }
+    </script>
+    <style>
+        body{
+  background-color: lightblue;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+form{
+  border-radius: 25px;
+	box-sizing: content-box;
+width: 300px;
+height: 580px;
+padding: 30px;
+border: 10px solid black;
+margin: 0px 10px 100px 950px;
+background-color: rgba(255, 255, 255, 0.7);
+}
+
+.ff{
+  margin: 0px 100px 100px 80px;
+  text-align: center;
+
+}
+.h{
+    color: black;
+}
+h1{
+text-align: center;}
+    </style>
+    </head>
+
+
+
+    <body background="">
+       <h1>TRAIN TICKET RESERVATION </h1>
+       <form action="/register" method="post" onsubmit="return validation()">
+       <div class="ff">
+       <div class="h">REGISTER</div><br>
+       <input id="fname" type="text" name="name" placeholder="FirstNAME" required><br><br>
+
+       <input id="lname" type="text" name="name" placeholder="LastNAME" required><br><br>
+
+       D.O.B:<input type="date" id="start" name="trip-start" placeholder="select date" max="2001-02-03" required><br><br>
+
+       Gender :  <select>
+       <option value="MALE">MALE</option>
+        <option value="FEMALE">FEMALE</option>
+        <option value="OTHER">OTHER</option>
+        </select><br><br>
+
+        <input id="username" type="text" name="name" placeholder="USERNAME" required><br><br>
+
+      Password Must contain 8 Characters,Atleast 1 Upper case and 1 number :<br>
+        <input id="password" type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="PASSWORD(8 Characters,Number,Upper Case,Lower Case)" required><br><br>
+
+        <input id="passwordcheck" type="password" name="password" placeholder="Confirm PASSWORD" required><br><br>
+
+        <input id="mob" type="Number" name="MobileNumber" placeholder="MobileNumber" required><br><br>
+
+        <input id="email" type="text" name="email" placeholder="E-MAIL ID" required><br><br>
+
+         <p><input type="Submit" value="send" name="Submit">
+            <input type="reset" value="Reset" name="Reset">
+        </p>
+
+        <p id="pr"></p>
+        <a href="can">CANCEL</a>
+
+
+       </form>
+    </body>
+</html>

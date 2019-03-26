@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script type="text/javascript" >
+//alert('hi')
+
+//var attempt = 3; // Variable to count number of attempts.
+// Below function Executes on click of login button.
+function verifyNull(){
+var username = document.getElementById("username").value;
+var password = document.getElementById("password").value;
+if ( username == "pranesh" && password == "123"){
+
+    //  alert ("Login successfully");
+window.location = "main";
+ // Redirecting to other page.
+return false;
+}
+else{
+  if ( username == "admin" && password == "123"){
+
+      //  alert ("Login successfully");
+  window.location = "admin";
+   // Redirecting to other page.
+  return false;
+  }
+ // document.getElementById("errorMsg");
+      //alert('invalid');
+      document.getElementById("pr").innerHTML="Invalid username or password";
+
+}
+}
+</script>
+
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+
+</head>
+<style>
+body{
+  /* background-image: url("img.jpg"); */
+	background-color: lightblue;
+	background-repeat: no-repeat;
+	background-position: center;
+/*	background-image-size:100px 100px
+*/}
+
+form{
+  border-radius: 25px;
+	box-sizing: content-box;
+	width: 300px;
+	height: 290px;
+	padding: 30px;
+	border: 10px solid black;
+	margin: 100px 10px 100px 800px;
+
+  background-color: rgba(255, 255, 255, 0.7);
+
+}
+.ff{
+  margin: 0px 100px 100px 80px;
+  text-align: center;
+}
+.h{
+    color: black;
+}
+.q{
+  flood-color: white;
+}
+
+h1{
+  text-align: center;
+  color: black;
+  border-color: black;
+
+}
+
+.button{
+	background-color: #4CAF50; /* Green */
+ border: none;
+ color: white;
+ padding: 10px;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ font-size: 12px;
+ margin: 4px 2px;
+ cursor: pointer;
+ border-radius: 50%;
+
+}
+
+</style>
+<body background="">
+
+<h1><i class="fas fa-train" style="color:black;font-size:40px"></i>
+TRAIN  TICKET  RESERVATION  SYSTEM</h1>
+
+
+
+
+<div>
+
+<form action="/submit-student-data" method="post" onsubmit="return verifyNull()">
+
+  <div class="ff">
+    <div class="h"><b> LOGIN</b></div><br>
+
+   <input id="username" type="text" name="name" placeholder="USERNAME" required><br><br>
+   <input id="password" type="password" name="password" placeholder="PASSWORD" required><br><br>
+<p id="pr"></p>
+
+     <input type = "submit" value = "Submit" class="button" onClick = "verifyNull();"/>
+        <p id="q"><a href="signup">Register</a></p>
+<p id="g">Continue as <a href="guest">GUEST</a></p>
+<!--      <button <a href="form2.html" type="button" onclick="myFunction()">Submit</button>
+ -->
+</form>
+
+
+  </div>
+</div>
+</body></html>
